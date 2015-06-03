@@ -35,7 +35,25 @@ function expect(target) {
 // \___/\____/_/ /_/____/\__/_/   \__,_/\___/\__/\____/_/  /____/
 //
 // Only add code to *THIS* section!
+var Dog = function (options) {
+  var options = options || {}; /* it either equals options ('parameter') or goes to the avaliable objects*/
+  this.status = options.status || 'normal';
+  this.color = options.color;
+  this.hungry = (options.hungry == undefined) ? true : options.hungry;
+};
 
+var Human = function (options) {
+  var options = options || {};
+  this.pet = function(dog) {
+    dog.status = 'happy';
+  };
+  this.feed = function(dog) {
+    dog.hungry=false;
+  }; /*Do not put a name in because it can change at all times*/
+  this.owner = options.human;
+  this.cool = (options.cool == undefined) ? false : options.cool;
+
+};
 // ????????
 // ????????
 // ????????
